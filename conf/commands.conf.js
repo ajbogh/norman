@@ -7,6 +7,7 @@
 // The keyword can be used at any point within the command.
 // This keyword is like "Hal", or "Jarvis", or "Computer", you must say it to activate the system.
 module.exports = {
+  norman: 'keyword',
   computer: 'keyword',
 
   // Cancels a running command by terminating it
