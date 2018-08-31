@@ -13,8 +13,8 @@
     "install": "npm run install:sphinxbase && npm run install:pocketsphinx",
     "install:sphinxbase": "napa cmusphinx/sphinxbase && npm run build:sphinxbase",
     "install:pocketsphinx": "napa cmusphinx/pocketsphinx && npm run build:pocketsphinx",
-    "build:sphinxbase": "cd ./node_modules/sphinxbase && ./autogen.sh && ./configure --prefix=`pwd` && make && make install && cd ../..",
-    "build:pocketsphinx": "cd ./node_modules/pocketsphinx && ./autogen.sh && ./configure --prefix=`pwd` && make && make install && cd ../..",
+    "build:sphinxbase": "cd ./node_modules/sphinxbase && ./autogen.sh && ./configure --libdir=$PWD/local/lib --prefix=$PWD/local && make install && cd ../..",
+    "build:pocketsphinx": "cd ./node_modules/pocketsphinx && ./autogen.sh && LDFLAGS=-Wl,-L$PWD/../sphinxbase/local/lib,-L$PWD/src/libpocketsphinx ./configure --prefix=`pwd` && make && make install && cd ../..",
     "config:convert": "node ./lib/convert-commands.js"
   },
   "keywords": [
