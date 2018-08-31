@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --experimental-modules index.mjs",
     "listener": "node ./lib/listener.js",
+    "listener:debug": "DEBUG=norman node ./lib/listener.js",
     "google": "export GOOGLE_APPLICATION_CREDENTIALS=./service-account.json && node ./lib/google-cloud.js",
     "pocketsphinx": "node lib/pocketsphinx.js",
     "recognizer": "node lib/recognizer.js",
     "install": "npm run install:sphinxbase && npm run install:pocketsphinx",
     "install:sphinxbase": "napa cmusphinx/sphinxbase && npm run build:sphinxbase",
     "install:pocketsphinx": "napa cmusphinx/pocketsphinx && npm run build:pocketsphinx",
-    "build:sphinxbase": "cd ./node_modules/sphinxbase && ./autogen.sh && ./configure --prefix=`pwd` && make && make install && cd ../..",
-    "build:pocketsphinx": "cd ./node_modules/pocketsphinx && ./autogen.sh && ./configure --prefix=`pwd` && make && make install && cd ../..",
+    "build:sphinxbase": "cd ./node_modules/sphinxbase && ./autogen.sh && ./configure --prefix=`pwd` && make && make install -i && cd ../..",
+    "build:pocketsphinx": "cd ./node_modules/pocketsphinx && ./autogen.sh && ./configure --prefix=`pwd` && make && make install -i && cd ../..",
     "config:convert": "node ./lib/convert-commands.js"
   },
   "keywords": [
@@ -27,6 +28,7 @@
   "license": "ISC",
   "dependencies": {
     "cmake-js": "^3.7.3",
+    "debug": "^3.1.0",
     "fs-extra": "^7.0.0",
     "lmtool": "^2.0.3",
     "mic": "^2.1.2",

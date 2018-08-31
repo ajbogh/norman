@@ -19,6 +19,7 @@ module.exports = {
 
   // This is a basic command
   'hello world': 'echo "hello world"',
+  'morning': 'say "good morning sir"',
 
   // Plugins can be ran by using the plugins / script.ext path.
   // All plugins must be in the format "command:plugins/script.ext"

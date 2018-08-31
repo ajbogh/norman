@@ -42,8 +42,8 @@ A few tools are used to process local speech. Pocketsphinx by Carnegie Mellon Un
 Edit `conf/commands.conf.js` to add new keywords and commands. Commands are anything that can run on the command line. Plugins can be executed from the plugins folder using your interpreter of choice, for example `sh plugins/myfile.sh` or `python plugins/myfile.py` or `node myfile.js`.
 
 ```
-  // Plugins can be ran by using the plugins / script.ext path.
-  // All plugins must be in the format "command:plugins/script.ext"
+  // Plugins can be ran by using the plugins/script.ext path.
+  // All plugins must be in JSON format with the key being the spoken word, and the command to run in the terminal as the value.
   'email': 'sh plugins/thunderbird.sh',
 ```
 
@@ -58,15 +58,11 @@ Keyword example:
   'hey you guys': 'keyword'
 ```
 
-Command keywords can be one or more words, and can be spoken in any order or within a phrase. For instance, a command can be "say hello" and you could say "computer please say hello". As long as the matched phrase is 75% of the spoken words minus the name keyword ("computer" in this case), then the command will activate. The match percentage can be adjusted.
+Command keywords can be one or more words, and can be spoken in any order or within a phrase. For instance, a command can be "say hello" and you could say "computer please say hello". As long as the matched phrase is 75% of the spoken words minus the name keyword ("computer" in this case), then the command will activate. The match percentage can be adjusted with the `--matchPercentage` property.
 
 ```
   'morning': 'say "good morning sir"',
   'hello world': 'echo "hello world"',
-
-  // Plugins can be ran by using the plugins / script.ext path.
-  // All plugins must be in the format "command:plugins/script.ext"
-  'email': 'sh plugins/thunderbird.sh',
 ```
 
 The last executed command can be canceled by issuing a 'cancel' command. Several 'cancel' commands are provided in the `commands.conf.js` file already. This is useful for commands that create speech.
@@ -94,4 +90,48 @@ After editing the `commands.conf.js` file, adding new keywords and commands, and
 
 ```
 npm run listener
+```
+
+### Specifying a specific microphone
+
+Sometimes it's necessary to specify a custom microphone. While the system attempts to use the default system microphone, sometimes it doesn't quite work. You may notice that the system will stop as soon as it find its first speech block and gets stuck there. This is because it's using a microphone that produces a click during the initial connection but no further information.
+
+To specify a custom mic, use the `--mic` command line option:
+
+```
+npm run listener --mic hw:2,0
+```
+
+The format is the same as arecord's mic option. To get this information use `arecord -l`.
+
+```
+~/Projects/Norman$ arecord -l
+**** List of CAPTURE Hardware Devices ****
+card 0: PCH [HDA Intel PCH], device 0: ALC1150 Analog [ALC1150 Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 2: ALC1150 Alt Analog [ALC1150 Alt Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 2: U0x46d0x81b [USB Device 0x46d:0x81b], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+Using the information above, we can build the `hw:X,Y` property.
+
+  card **2**: U0x46d0x81b [USB Device 0x46d:0x81b], device **0**: USB Audio [USB Audio]
+
+The 2 will replace the X, and the 0 will replace the Y, making "hw:2,0".
+
+## Debugging
+
+Note: debugging Norman will cause a ton of output in the console and it may not be helpful. Only developers should use this command.
+
+```
+DEBUG=norman npm run listener --mic hw:2,0
+
+# or
+
+npm run listener:debug
 ```
