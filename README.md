@@ -10,7 +10,7 @@ Norman is light weight and runs on small hardware specs. Add it to your Raspberr
 
 Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
 - Mac: `brew upgrade python`
-- Linux: `sudo apt-get install python python-dev`
+- Linux: `sudo apt install python python-dev automake autoconf libtool bison swig`
 
 **Recording program installation:**
 
