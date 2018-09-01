@@ -1,3 +1,3 @@
 #!/bin/sh
 
-say "Hello"
+espeak "Hello"

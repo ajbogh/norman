@@ -17,7 +17,8 @@ Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
 Norman uses a command line microphone recording system, usually `rec` with Linux, or `arecord` or `sox` for Windows and Mac. Mac users should install `sox`, we do not support Windows yet (sorry).
 
 Mac only:
-```
+
+```bash
 brew install sox
 ```
 
@@ -29,7 +30,7 @@ Make sure Python 3 and the development libs are installed before continuing.
 
 *Tested on Ubuntu and Mac*
 
-```
+```bash
 npm install
 ```
 
@@ -76,11 +77,19 @@ The last executed command can be canceled by issuing a 'cancel' command. Several
   'stop command': 'cancel',
 ```
 
+Some commands require dependencies, such as the `espeak` application (for Ubuntu). You will have to install these separately. For instance, `espeak` can be installed using 
+
+```bash
+sudo apt install espeak
+```
+
+Then you can use the command `norman say hello` and your computer will say "hello" to you.
+
 ## Processing the config
 
 After adding new commands to the config, the person editing it must run a processing command. This command creates a language model and dictionary file by sending the keywords to an online service. No commands are ever transmitted, only the keywords.
 
-```
+```bash
 npm run config:convert
 ```
 
@@ -88,7 +97,7 @@ npm run config:convert
 
 After editing the `commands.conf.js` file, adding new keywords and commands, and running the `config:convert`, you may run the Norman node service.
 
-```
+```bash
 npm run listener
 ```
 
@@ -98,13 +107,13 @@ Sometimes it's necessary to specify a custom microphone. While the system attemp
 
 To specify a custom mic, use the `--mic` command line option:
 
-```
+```bash
 npm run listener --mic hw:2,0
 ```
 
 The format is the same as arecord's mic option. To get this information use `arecord -l`.
 
-```
+```bash
 ~/Projects/Norman$ arecord -l
 **** List of CAPTURE Hardware Devices ****
 card 0: PCH [HDA Intel PCH], device 0: ALC1150 Analog [ALC1150 Analog]
@@ -128,7 +137,7 @@ The 2 will replace the X, and the 0 will replace the Y, making "hw:2,0".
 
 Note: debugging Norman will cause a ton of output in the console and it may not be helpful. Only developers should use this command.
 
-```
+```bash
 DEBUG=norman npm run listener --mic hw:2,0
 
 # or
@@ -144,8 +153,26 @@ default-sample-rate = 16000
 
 Once the file is created and the line is added, restart the pulseaudio daemon.
 
-```
+```bash
 pulseaudio -k
 ```
 
 You may now test your microphone by using `arecord resources/output.wav` or using a program like Audacity. The audio should be crisp and a the correct speed.
+
+Sometimes the system will hang as soon as it finds the first speech block. If you see the output below and the system doesn't produce any more output as you speak, it may be a pulseaudio problem.
+
+```
+> norman@0.0.1 listener /Projects/Norman
+> node ./lib/listener.js
+
+Got SIGNAL startComplete
+Found speech block 18770 number
+```
+
+Restart pulseaudio and either wait a few seconds or start and stop the listener a couple times until the microphone works again.
+
+```bash
+pulseaudio -k
+npm run listener
+```
+
