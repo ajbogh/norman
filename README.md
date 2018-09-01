@@ -158,7 +158,7 @@ Once the file is created and the line is added, restart the pulseaudio daemon.
 pulseaudio -k
 ```
 
-You may now test your microphone by using `arecord resources/output.wav` or using a program like Audacity. The audio should be crisp and a the correct speed.
+You may now test your microphone by using `arecord resources/output.wav` or using a program like Audacity. The audio should be crisp and at the correct speed.
 
 Sometimes the system will hang as soon as it finds the first speech block. If you see the output below and the system doesn't produce any more output as you speak, it may be a pulseaudio problem.
 
