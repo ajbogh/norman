@@ -135,3 +135,17 @@ DEBUG=norman npm run listener --mic hw:2,0
 
 npm run listener:debug
 ```
+
+Some Logitech USB microphones will produce Chipmunk-like recordings in Ubuntu. This can be fixed by creating or editing a file under `$HOME/.pulse/daemon.conf` and adding the following line:
+
+```
+default-sample-rate = 16000
+```
+
+Once the file is created and the line is added, restart the pulseaudio daemon.
+
+```
+pulseaudio -k
+```
+
+You may now test your microphone by using `arecord resources/output.wav` or using a program like Audacity. The audio should be crisp and a the correct speed.
