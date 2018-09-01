@@ -31,6 +31,8 @@ Make sure Python 3 and the development libs are installed before continuing.
 *Tested on Ubuntu and Mac*
 
 ```bash
+git clone git@github.com:ajbogh/norman.git
+cd norman
 npm install
 ```
 
