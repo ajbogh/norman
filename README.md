@@ -44,7 +44,8 @@ Edit `conf/commands.conf.js` to add new keywords and commands. Commands are anyt
 
 ```
   // Plugins can be ran by using the plugins/script.ext path.
-  // All plugins must be in JSON format with the key being the spoken word, and the command to run in the terminal as the value.
+  // All plugins must be in JSON format with the key being the spoken word, 
+  // and the command to run in the terminal as the value.
   'email': 'sh plugins/thunderbird.sh',
 ```
 
