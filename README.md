@@ -179,3 +179,30 @@ pulseaudio -k
 npm run listener
 ```
 
+###pocketsphinx_continuous failed
+
+Pocketsphinx is installed using a tool called [napa](https://www.npmjs.com/package/napa). Napa downloads a git repository and places it into the node_modules directory. The problem with this is that npm will delete any folder that's not registered as a dependency or devDependency. While napa works great for simplifying the installation, it becomes a hassle whenever you need to install a different dependency because you have to always remember to `npm install` **after** you `npm install someDependency`.
+
+If you see this error:
+
+```
+/Projects/norman/lib/pocketsphinx.js:27
+    throw error;
+    ^
+
+Error: Command failed: ./node_modules/pocketsphinx/bin/pocketsphinx_continuous -infile ./resources/output.wav -lm ./resources/corpus/7268.lm -dict ./resources/corpus/7268.dic
+./node_modules/pocketsphinx/bin/pocketsphinx_continuous: error while loading shared libraries: libpocketsphinx.so.3: cannot open shared object file: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:291:12)
+    at ChildProcess.emit (events.js:182:13)
+    at maybeClose (internal/child_process.js:961:16)
+    at Socket.stream.socket.on (internal/child_process.js:380:11)
+    at Socket.emit (events.js:182:13)
+    at Pipe._handle.close (net.js:595:12)
+```
+
+Run:
+
+```
+npm install
+```
