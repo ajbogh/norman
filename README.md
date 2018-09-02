@@ -179,7 +179,7 @@ pulseaudio -k
 npm run listener
 ```
 
-###pocketsphinx_continuous failed
+### pocketsphinx_continuous failed
 
 Pocketsphinx is installed using a tool called [napa](https://www.npmjs.com/package/napa). Napa downloads a git repository and places it into the node_modules directory. The problem with this is that npm will delete any folder that's not registered as a dependency or devDependency. While napa works great for simplifying the installation, it becomes a hassle whenever you need to install a different dependency because you have to always remember to `npm install` **after** you `npm install someDependency`.
 
