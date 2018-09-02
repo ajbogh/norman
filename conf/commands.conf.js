@@ -9,6 +9,9 @@
 module.exports = {
   norman: 'keyword',
   computer: 'keyword',
+  hal: 'keyword',
+  alfred: 'keyword',
+  jeeves: 'keyword',
 
   // Cancels a running command by terminating it
   cancel: 'cancel',
