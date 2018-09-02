@@ -20,6 +20,12 @@ module.exports = {
   // This is a basic command
   'hello world': 'echo "hello world"',
   'morning': 'espeak "good morning sir"',
+  'time': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
+  'what time is it': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
+  'what time': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
+  'what date is it': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
+  'what date': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
+  'date': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
 
   // Plugins can be ran by using the plugins / script.ext path.
   // All plugins must be in the format "command:plugins/script.ext"
