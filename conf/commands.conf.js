@@ -23,12 +23,12 @@ module.exports = {
   // This is a basic command
   'hello world': 'echo "hello world"',
   'morning': 'espeak "good morning sir"',
-  'time': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
-  'what time is it': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
-  'what time': 'espeak "`date +"%I:%M %p" | sed -e \'s/^0//\'`"',
-  'what date is it': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
-  'what date': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
-  'date': 'espeak "`date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +\'%I:%M %p\' | sed -e \'s/^0//\'`"',
+  'time': 'espeak "the current time is `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
+  'what time is it': 'espeak "the current time is `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
+  'what time': 'espeak "the current time is `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
+  'what date is it': 'espeak "the current date is `date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
+  'what date': 'espeak "the current date is `date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
+  'date': 'espeak "the current date is `date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
 
   // Plugins can be ran by using the plugins / script.ext path.
   // All plugins must be in the format "command:plugins/script.ext"
