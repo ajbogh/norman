@@ -6,6 +6,14 @@ What makes Norman different from Google Assistant, Alexa, and Siri? It's fully c
 
 Norman is light weight and runs on small hardware specs. Add it to your Raspberry Pi, make a robot that accepts voice commands without using the cloud, and automate your house any way you want.
 
+## Limitations
+
+Norman only recognizes words in the commands file. If it hears you speaking it will try to pigeon-hole your conversation into that word list, meaning if you say "mail" or "male" it'll think you said "email". You can see some of these misunderstandings in the command output when Norman shows you the matched command. It will only activate the command if the activation keyword was spoken.
+
+The limitation is that you can't ask Norman to do any random thing, and you can't perform a complex command like "remind me to %1", where `%1` is a variable for anything you want to do. Norman simply can't recognize any old word unless it had the entire dictionary in its word list, or unless all the words you would ever speak were in the commands file.
+
+The nice part is the more commands you add to increase Norman's repertoire, the better it will become at recognizing words and the less it will attempt to pigeon-hole your conversation.
+
 ## Requirements
 
 Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
