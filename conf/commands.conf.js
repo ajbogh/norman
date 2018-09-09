@@ -30,8 +30,8 @@ module.exports = {
   'what date': 'espeak "the current date is `date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
   'date': 'espeak "the current date is `date +\'%A %B\'` `date +\'%d, %Y\' | sed -e \'s/^0//\'`, `date +"%I" | sed -e \'s/^0//\'`,`date +"%M %p" | sed -e \'s/^0/O/\'`"',
 
-  // Plugins can be ran by using the plugins / script.ext path.
-  // All plugins must be in the format "command:plugins/script.ext"
+  // Plugins can be ran by using the ./plugins/script.ext path.
+  // All plugins must be in the format 'command': 'executable ./plugins/script.ext'
   'email': 'sh ./plugins/thunderbird.sh',
   'say hello': 'sh ./plugins/sayhello.sh',
   'quote': 'node ./plugins/random-quote.js',
