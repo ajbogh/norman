@@ -1,6 +1,6 @@
 {
   "name": "norman",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Personal assistant based on Blather.",
   "main": "index.js",
   "scripts": {
@@ -11,11 +11,13 @@
     "google": "export GOOGLE_APPLICATION_CREDENTIALS=./service-account.json && node ./lib/google-cloud.js",
     "pocketsphinx": "node lib/pocketsphinx.js",
     "recognizer": "node lib/recognizer.js",
-    "install": "npm run install:sphinxbase && npm run install:pocketsphinx",
+    "install": "npm run install:sphinxbase && npm run install:pocketsphinx && npm run install:rnnoise",
     "install:sphinxbase": "napa cmusphinx/sphinxbase && npm run build:sphinxbase",
     "install:pocketsphinx": "napa cmusphinx/pocketsphinx && npm run build:pocketsphinx",
+    "install:rnnoise": "napa xiph/rnnoise && npm run build:rnnoise",
     "build:sphinxbase": "cd ./node_modules/sphinxbase && ./autogen.sh && ./configure --prefix=`pwd` && make && make install -i && cd ../..",
     "build:pocketsphinx": "cd ./node_modules/pocketsphinx && ./autogen.sh && ./configure --prefix=`pwd` && make && make install -i && cd ../..",
+    "build:rnnoise": "cd ./node_modules/rnnoise && ./autogen.sh && ./configure --prefix=`pwd` && make && make install -i && cd ../..",
     "config:convert": "node ./lib/convert-commands.js"
   },
   "keywords": [

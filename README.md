@@ -17,8 +17,10 @@ The nice part is the more commands you add to increase Norman's repertoire, the 
 ## Requirements
 
 Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
-- Mac: `brew upgrade python`
-- Linux: `sudo apt install python python-dev automake autoconf libtool bison swig`
+- Mac: `brew install ffmpeg && brew upgrade python`
+- Linux: `sudo apt install python python-dev automake autoconf libtool bison swig ffmpeg`
+
+Please note that ffmpeg is required during the process of removing background noise.
 
 **Recording program installation:**
 
