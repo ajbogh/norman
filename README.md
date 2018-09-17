@@ -1,4 +1,4 @@
-# norman
+# Norman
 
 Norman is a NodeJS-based automation system. The name is based on a story that my wife told me of her grandmother yelling at her grandfather to get her a beer. "Norman! Get me a beer!" I used that story as inspiration to develop "Norman", the NodeJS assistant. Feel free to yell its name while requesting a beer.
 
@@ -20,7 +20,7 @@ Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
 - Mac: `brew install ffmpeg && brew upgrade python`
 - Linux: `sudo apt install python python-dev automake autoconf libtool bison swig ffmpeg`
 
-Please note that ffmpeg is required during the process of removing background noise.
+Please note that ffmpeg is required during the process of removing background noise. It is used to convert the raw 
 
 **Recording program installation:**
 
@@ -121,7 +121,7 @@ Sometimes it's necessary to specify a custom microphone. While the system attemp
 To specify a custom mic, use the `--mic` command line option:
 
 ```bash
-npm run listener --mic hw:2,0
+npm run listener -- --mic hw:2,0
 ```
 
 The format is the same as arecord's mic option. To get this information use `arecord -l`.
@@ -145,6 +145,24 @@ Using the information above, we can build the `hw:X,Y` property.
   card **2**: U0x46d0x81b [USB Device 0x46d:0x81b], device **0**: USB Audio [USB Audio]
 
 The 2 will replace the X, and the 0 will replace the Y, making "hw:2,0".
+
+## Options
+
+Command line options are provided after the `--` symbols when running `npm`. A word-based command line option is preceded with `--` as well, and single letter options will have a single `-`. Below are the list of available options.
+
+To running the listener with an option, after the word `listener` include two dashes `--`, then a space, then the options and parameters.
+
+Example:
+
+```bash
+npm run listener -- --mic hw:2,0
+```
+
+| Option        | Values        | Default        | Description
+| ------------- | ------------- | -------------- | ------------- 
+| --mic         | hw:X,Y        | system default | Configures node mic to use a different hardware microphone
+| --rnnoise     | false, off, 0 | on, true, 1    | Turns off recombinant neural network background noise elimination (on by default)
+| --debug       | true          | false          | Enables verbose debug messages (developers and advanced users only please)
 
 ## Debugging
 
