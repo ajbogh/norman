@@ -158,12 +158,12 @@ Example:
 npm run listener -- --mic hw:2,0
 ```
 
-| Option              | Values        | Default        | Description
-| ------------------- | ------------- | -------------- | ------------- 
-| `--mic`             | hw:X,Y        | system default | Configures node mic to use a different hardware microphone
-| `--rnnoise`         | false, off, 0 | on, true, 1    | Turns off recombinant neural network background noise elimination (on by default)
-| `--debug`           | true          | false          | Enables verbose debug messages (developers and advanced users only please)
-| `--matchPercentage` | 0.5           | 0.75           | Allows Norman to be a little more lenient on the number of words required to match a phrase
+| Option          | Values        | Default        | Description
+| --------------- | ------------- | -------------- | ------------- 
+| mic             | hw:X,Y        | system default | Configures node mic to use a different hardware microphone
+| rnnoise         | false, off, 0 | on, true, 1    | Turns off recombinant neural network background noise elimination (on by default)
+| debug           | true          | false          | Enables verbose debug messages (developers and advanced users only please)
+| matchPercentage | 0.5           | 0.75           | Allows Norman to be a little more lenient on the number of words required to match a phrase
 
 ## Debugging
 
