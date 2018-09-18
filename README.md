@@ -150,7 +150,7 @@ The 2 will replace the X, and the 0 will replace the Y, making "hw:2,0".
 
 Command line options are provided after the `--` symbols when running `npm`. A word-based command line option is preceded with `--` as well, and single letter options will have a single `-`. Below are the list of available options.
 
-To running the listener with an option, after the word `listener` include two dashes `--`, then a space, then the options and parameters.
+To run the listener with an option, after the word `listener` include two dashes `--`, then a space, then the options and parameters.
 
 Example:
 
