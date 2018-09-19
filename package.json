@@ -1,14 +1,13 @@
 {
   "name": "norman",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Personal assistant based on Blather.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules index.mjs",
+    "start": "npm run listener",
     "listener": "node ./lib/listener.js",
     "listener:debug": "DEBUG=norman node ./lib/listener.js",
-    "google": "export GOOGLE_APPLICATION_CREDENTIALS=./service-account.json && node ./lib/google-cloud.js",
     "pocketsphinx": "node lib/pocketsphinx.js",
     "recognizer": "node lib/recognizer.js",
     "install": "npm run install:sphinxbase && npm run install:pocketsphinx && npm run install:rnnoise",
