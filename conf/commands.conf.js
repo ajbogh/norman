@@ -38,6 +38,7 @@ module.exports = {
   // Plugins can be ran by using the ./plugins/script.ext path.
   // All plugins must be in the format 'command': 'executable ./plugins/script.ext'
   'email': 'sh ./plugins/thunderbird.sh',
+  'open email': 'sh ./plugins/thunderbird.sh',
   'say hello': 'sh ./plugins/sayhello.sh',
   'quote': 'node ./plugins/random-quote.js',
   'sing a song': 'sh ./plugins/daisy.sh',
