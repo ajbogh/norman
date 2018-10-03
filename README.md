@@ -184,7 +184,7 @@ npm run listener -- --debug
 
 npm run listener:verbose
 
-# fulldebug is also
+# verbose is the same as
 
 DEBUG=norman-listener npm run listener -- --debug
 ```
