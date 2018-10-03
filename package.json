@@ -8,6 +8,7 @@
     "start": "npm run listener",
     "listener": "node ./lib/listener.js",
     "listener:debug": "DEBUG=norman node ./lib/listener.js",
+    "listener:verbose": "DEBUG=norman node ./lib/listener.js --debug",
     "pocketsphinx": "node lib/pocketsphinx.js",
     "recognizer": "node lib/recognizer.js",
     "install": "npm run install:sphinxbase && npm run install:pocketsphinx && npm run install:rnnoise",

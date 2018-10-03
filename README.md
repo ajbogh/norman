@@ -20,7 +20,7 @@ Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
 - Mac: `brew install ffmpeg && brew upgrade python`
 - Linux: `sudo apt install python python-dev automake autoconf libtool bison swig ffmpeg`
 
-Please note that ffmpeg is required during the process of removing background noise. It is used to convert the raw 
+Please note that ffmpeg is required during the process of removing background noise. It is used to convert the raw
 
 **Recording program installation:**
 
@@ -56,7 +56,7 @@ Edit `conf/commands.conf.js` to add new keywords and commands. Commands are anyt
 
 ```
   // Plugins can be ran by using the plugins/script.ext path.
-  // All plugins must be in JSON format with the key being the spoken word, 
+  // All plugins must be in JSON format with the key being the spoken word,
   // and the command to run in the terminal as the value.
   'email': 'sh plugins/thunderbird.sh',
 ```
@@ -90,7 +90,7 @@ The last executed command can be canceled by issuing a 'cancel' command. Several
   'stop command': 'cancel',
 ```
 
-Some commands require dependencies, such as the `espeak` application (for Ubuntu). You will have to install these separately. For instance, `espeak` can be installed using 
+Some commands require dependencies, such as the `espeak` application (for Ubuntu). You will have to install these separately. For instance, `espeak` can be installed using
 
 ```bash
 sudo apt install espeak
@@ -159,7 +159,7 @@ npm run listener -- --mic hw:2,0
 ```
 
 | Option          | Values        | Default        | Description
-| --------------- | ------------- | -------------- | ------------- 
+| --------------- | ------------- | -------------- | -------------
 | mic             | hw:X,Y        | system default | Configures node mic to use a different hardware microphone
 | rnnoise         | false, off, 0 | on, true, 1    | Turns off recombinant neural network background noise elimination (on by default)
 | debug           | true          | false          | Enables verbose debug messages (developers and advanced users only please)
@@ -170,11 +170,23 @@ npm run listener -- --mic hw:2,0
 Note: debugging Norman will cause a ton of output in the console and it may not be helpful. Only developers should use this command.
 
 ```bash
-DEBUG=norman npm run listener --mic hw:2,0
+DEBUG=norman-listener npm run listener --mic hw:2,0
 
 # or
 
 npm run listener:debug
+
+# or (notice "-- --")
+
+npm run listener -- --debug
+
+# or
+
+npm run listener:verbose
+
+# fulldebug is also
+
+DEBUG=norman-listener npm run listener -- --debug
 ```
 
 Some Logitech USB microphones will produce Chipmunk-like recordings in Ubuntu. This can be fixed by creating or editing a file under `$HOME/.pulse/daemon.conf` and adding the following line:
