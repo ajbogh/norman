@@ -20,7 +20,7 @@ Python 3 or Python 2.7 with linked libraries (easiest is to install Python 3)
 - Mac: `brew install ffmpeg && brew upgrade python`
 - Linux: `sudo apt install python python-dev automake autoconf libtool bison swig ffmpeg`
 
-Please note that ffmpeg is required during the process of removing background noise. It is used to convert the raw
+Please note that ffmpeg is required during the process of removing background noise. It is used to convert the raw speech output to wav format.
 
 **Recording program installation:**
 
